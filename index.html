@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Practical technology consulting, systems integration and modernization by Anthony Edgar.">
+<title>Anthony Edgar - Technology Consulting | Catalyzing Superior Performance</title>
+<style>
+:root {
+  --site-primary: #173b4b;
+  --site-on-primary: #ffffff;
+  --site-secondary: #dce9e7;
+  --site-on-secondary: #173b4b;
+  --site-background: #f4f6f3;
+  --site-on-background: #182a31;
+  --site-font-body: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --site-font-heading: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --site-heading-scale: 1;
+  --site-spacing-scale: 1;
+  --site-radius-scale: 1;
+  --site-decoration-opacity: 1;
+  --surface: light-dark(#ffffff, #172329);
+  --surface-soft: light-dark(#edf2ef, #202f35);
+  --muted: light-dark(#5d6e73, #b4c1c4);
+  --line: light-dark(#d9e1de, #3a4a50);
+  --accent: light-dark(#b7d7cd, #315d58);
+  --warm: light-dark(#e8a66a, #d18d50);
+}
+* { box-sizing: border-box; }
+html { color-scheme: light dark; scroll-behavior: smooth; }
+body { margin: 0; font-family: var(--site-font-body); background: var(--site-background); color: var(--site-on-background); }
+#app { min-height: 100vh; width: 100%; background-color: var(--site-background); color: var(--site-on-background); border-radius: 0; overflow: hidden; }
+a { color: inherit; }
+.wrap { width: min(1120px, calc(100% - 48px)); margin: 0 auto; }
+header { padding: calc(22px * var(--site-spacing-scale)) 0; border-bottom: 1px solid var(--line); }
+.nav { display: flex; justify-content: space-between; align-items: center; gap: 24px; }
+.brand { display: flex; align-items: center; gap: 12px; text-decoration: none; font-weight: 760; letter-spacing: -.03em; }
+.mark { width: 38px; height: 38px; display: grid; place-items: center; border-radius: calc(12px * var(--site-radius-scale)); background: var(--site-primary); color: var(--site-on-primary); font-size: 15px; letter-spacing: -.06em; }
+.navlinks { display: flex; align-items: center; gap: 26px; color: var(--muted); font-size: 13px; font-weight: 600; }
+.navlinks a { text-decoration: none; }
+.navlinks a:hover { color: var(--site-on-background); }
+.nav-cta, .button { display: inline-flex; align-items: center; justify-content: center; border-radius: 999px; padding: 12px 19px; text-decoration: none; font-weight: 700; font-size: 13px; transition: transform .2s, background .2s; }
+.nav-cta, .button.primary { background: var(--site-primary); color: var(--site-on-primary); }
+.button.secondary { border: 1px solid var(--line); background: var(--surface); color: var(--site-on-background); }
+.button:hover, .nav-cta:hover { transform: translateY(-2px); }
+.hero { position: relative; padding: clamp(76px, 10vw, 132px) 0 90px; background: var(--site-primary); color: var(--site-on-primary); isolation: isolate; }
+.hero:after { content: ""; position: absolute; z-index: -1; width: 570px; height: 570px; border: 1px solid rgba(255,255,255,.15); border-radius: 50%; right: -120px; top: -210px; box-shadow: 0 0 0 65px rgba(255,255,255,.035), 0 0 0 130px rgba(255,255,255,.025); opacity: var(--site-decoration-opacity); }
+.eyebrow { text-transform: uppercase; letter-spacing: .16em; font-size: 10px; font-weight: 800; color: var(--warm); margin: 0 0 22px; }
+h1,h2,h3,p { margin-top: 0; }
+h1 { font-family: var(--site-font-heading); font-size: clamp(42px, 6.4vw, 76px); line-height: 1.02; letter-spacing: -.065em; max-width: 850px; margin-bottom: 25px; font-weight: 760; }
+.hero-copy { color: rgba(255,255,255,.78); font-size: clamp(16px, 2vw, 19px); line-height: 1.7; max-width: 650px; margin-bottom: 32px; }
+.hero-actions { display: flex; flex-wrap: wrap; gap: 12px; }
+.hero .button.primary { background: #e8a66a; color: #172d35; }
+.hero .button.secondary { color: white; border-color: rgba(255,255,255,.3); background: transparent; }
+.hero-note { margin-top: 62px; padding-top: 18px; border-top: 1px solid rgba(255,255,255,.2); color: rgba(255,255,255,.62); font-size: 12px; display: flex; gap: 14px; align-items: center; }
+.hero-note strong { color: white; }
+.section { padding: 88px 0; }
+.section.alt { background: var(--surface-soft); }
+.section-head { max-width: 700px; margin-bottom: 42px; }
+.kicker { color: #9a673b; text-transform: uppercase; letter-spacing: .15em; font-size: 10px; font-weight: 800; margin-bottom: 15px; }
+h2 { font-size: clamp(30px, 4vw, 46px); line-height: 1.1; letter-spacing: -.05em; margin-bottom: 17px; }
+.lede { font-size: 17px; line-height: 1.7; color: var(--muted); }
+.roster-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+.roster-card { padding: 26px; background: var(--surface); border: 1px solid var(--line); border-radius: calc(18px * var(--site-radius-scale)); min-height: 235px; }
+.number { color: #9a673b; font-size: 11px; font-weight: 800; letter-spacing: .12em; }
+.roster-card h3 { font-size: 19px; letter-spacing: -.03em; margin: 30px 0 10px; }
+.roster-card p { color: var(--muted); line-height: 1.65; font-size: 14px; margin-bottom: 0; }
+.split { display: grid; grid-template-columns: .9fr 1.1fr; gap: 70px; align-items: start; }
+.quote-panel { background: var(--site-secondary); color: var(--site-on-secondary); padding: 34px; border-radius: calc(20px * var(--site-radius-scale)); }
+.quote-panel blockquote { margin: 0; font-size: clamp(22px, 3vw, 31px); font-weight: 680; line-height: 1.25; letter-spacing: -.04em; }
+.quote-panel p { margin: 24px 0 0; font-size: 12px; color: var(--muted); }
+.points { display: grid; gap: 23px; }
+.point { display: grid; grid-template-columns: 38px 1fr; gap: 15px; }
+.point-icon { width: 34px; height: 34px; border-radius: 50%; background: var(--accent); display: grid; place-items: center; color: var(--site-on-background); font-size: 13px; font-weight: 800; }
+.point h3 { font-size: 16px; margin: 2px 0 6px; }
+.point p { color: var(--muted); font-size: 14px; line-height: 1.6; margin: 0; }
+.method { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; counter-reset: step; }
+.step { counter-increment: step; border-top: 2px solid var(--site-primary); padding: 20px 16px 0 0; }
+.step:before { content: "0" counter(step); display: block; color: #9a673b; font-size: 11px; font-weight: 800; letter-spacing: .12em; margin-bottom: 24px; }
+.step h3 { font-size: 17px; margin-bottom: 9px; }
+.step p { color: var(--muted); font-size: 13px; line-height: 1.65; }
+.case { display: grid; grid-template-columns: 1fr 1fr; gap: 42px; align-items: center; }
+.case-visual { min-height: 320px; border-radius: calc(20px * var(--site-radius-scale)); background: var(--site-primary); color: white; padding: 30px; display: flex; flex-direction: column; justify-content: space-between; position: relative; overflow: hidden; }
+.case-visual:after { content: ""; position: absolute; width: 280px; height: 280px; right: -80px; bottom: -100px; border: 1px solid rgba(255,255,255,.3); border-radius: 50%; box-shadow: 0 0 0 35px rgba(255,255,255,.05), 0 0 0 70px rgba(255,255,255,.04); opacity: var(--site-decoration-opacity); }
+.case-label { font-size: 10px; letter-spacing: .16em; text-transform: uppercase; color: #e8a66a; font-weight: 800; }
+.case-visual strong { display: block; font-size: 34px; line-height: 1.08; letter-spacing: -.05em; max-width: 340px; position: relative; z-index: 1; }
+.case-visual small { color: rgba(255,255,255,.65); position: relative; z-index: 1; }
+.case-copy p { color: var(--muted); line-height: 1.7; }
+.pill-row { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 20px; }
+.pill { border: 1px solid var(--line); border-radius: 999px; padding: 8px 11px; font-size: 11px; color: var(--muted); background: var(--surface); }
+.about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; }
+.about-grid p { color: var(--muted); line-height: 1.75; }
+.credential-list { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 20px; }
+.credential { padding: 9px 12px; border-radius: 8px; background: var(--surface); border: 1px solid var(--line); font-size: 11px; font-weight: 700; }
+.contact { background: var(--site-primary); color: white; padding: 78px 0; }
+.contact-inner { display: flex; justify-content: space-between; align-items: center; gap: 30px; }
+.contact h2 { max-width: 620px; margin-bottom: 12px; }
+.contact p { color: rgba(255,255,255,.7); margin: 0; }
+.contact .button { background: #e8a66a; color: #172d35; white-space: nowrap; }
+footer { padding: 24px 0; color: var(--muted); font-size: 11px; }
+.footer-inner { display: flex; justify-content: space-between; gap: 20px; }
+@media (max-width: 760px) {
+  .wrap { width: min(100% - 36px, 600px); }
+  .navlinks { display: none; }
+  .hero { padding: 78px 0 60px; }
+  .hero-note { margin-top: 45px; }
+  .section { padding: 66px 0; }
+  .roster-grid { grid-template-columns: 1fr; }
+  .roster-card { min-height: auto; }
+  .roster-card h3 { margin-top: 20px; }
+  .split, .case, .about-grid { grid-template-columns: 1fr; gap: 32px; }
+  .method { grid-template-columns: 1fr 1fr; row-gap: 25px; }
+  .contact-inner { align-items: flex-start; flex-direction: column; }
+  .footer-inner { flex-direction: column; }
+}
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *:before, *:after { transition: none !important; } }
+</style>
+</head>
+<body>
+<div id="app">
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="#top" aria-label="Anthony Edgar home"><span class="mark">AE</span><span>ANTHONY EDGAR</span></a>
+    <nav class="navlinks" aria-label="Main navigation">
+      <a href="#approach">Approach</a><a href="#roster">Technology roster</a><a href="#work">What I do</a><a href="#about">About</a>
+    </nav>
+    <a class="nav-cta" href="#contact">Let's talk</a>
+  </div>
+</header>
+<main id="top">
+<section class="hero">
+  <div class="wrap">
+    <p class="eyebrow">Independent technology consulting · Systems integration</p>
+    <h1>Catalyzing superior performance.</h1>
+    <p class="hero-copy">From frontline technicians to MSP business leaders, Anthony Edgar - Technology Consulting is a practical partner and ally for championing the change you want to see in your business. Grounded in facts, field experience and metrics that matter.</p>
+    <div class="hero-actions"><a class="button primary" href="#contact">Start a conversation</a><a class="button secondary" href="#approach">How I work</a></div>
+    <div class="hero-note"><strong>Two decades of real-world technology experience.</strong><span>Clear thinking. Measured progress. Better outcomes.</span></div>
+  </div>
+</section>
+<section class="section" id="approach">
+  <div class="wrap split">
+    <div class="section-head">
+      <p class="kicker">A practical technology ally</p>
+      <h2>Good technology decisions start with understanding the whole picture.</h2>
+      <p class="lede">Every product has strengths, limitations and design trade-offs. The real work is knowing how the pieces fit, where the gaps are, and what to do about them.</p>
+    </div>
+    <div class="quote-panel">
+      <blockquote>“You don't need every player to be the best at everything. You need the right roster—and a plan for how the team plays together.”</blockquote>
+      <p>THE TECHNOLOGY ROSTER PRINCIPLE</p>
+    </div>
+  </div>
+</section>
+<section class="section alt" id="roster">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="kicker">Assess the roster. Improve the fit.</p>
+      <h2>Technology is a team sport.</h2>
+      <p class="lede">I look beyond individual vendor features to understand how your platforms, people and processes perform together.</p>
+    </div>
+    <div class="roster-grid">
+      <article class="roster-card"><span class="number">01 / KNOW THE PLAYERS</span><h3>Understand what you have</h3><p>Map the systems, vendors and capabilities already in place. Separate useful features from shelfware, overlap and wishful thinking.</p></article>
+      <article class="roster-card"><span class="number">02 / FIND THE GAPS</span><h3>See where the lineup falls short</h3><p>Identify weak handoffs, missing capabilities, unnecessary complexity and risks hiding between products.</p></article>
+      <article class="roster-card"><span class="number">03 / MAKE IT WORK</span><h3>Build a better combination</h3><p>Connect the right tools, add automation where it helps, and make improvements that fit the business—not the latest hype cycle.</p></article>
+    </div>
+  </div>
+</section>
+<section class="section" id="work">
+  <div class="wrap">
+    <div class="section-head"><p class="kicker">Where I can help</p><h2>Modernize what matters. Make the day-to-day work better.</h2><p class="lede">Clear priorities, practical engineering and improvements that can be explained in plain language.</p></div>
+    <div class="points">
+      <div class="point"><span class="point-icon">01</span><div><h3>Infrastructure & systems integration</h3><p>Servers, networks, cloud services, identity and business applications—designed to work as a coherent environment.</p></div></div>
+      <div class="point"><span class="point-icon">02</span><div><h3>Proactive IT operations</h3><p>Move beyond reacting to tickets. Establish baselines, spot meaningful changes, investigate recurring issues and validate fixes.</p></div></div>
+      <div class="point"><span class="point-icon">03</span><div><h3>Automation & operational improvement</h3><p>Reduce repetitive work, improve consistency and give technical teams more room for engineering, planning and prevention.</p></div></div>
+      <div class="point"><span class="point-icon">04</span><div><h3>Technology assessment & modernization</h3><p>Understand vendor design choices and trade-offs, close capability gaps and build a sensible roadmap around business outcomes.</p></div></div>
+    </div>
+  </div>
+</section>
+<section class="section alt">
+  <div class="wrap case">
+    <div class="case-visual"><span class="case-label">A practical proof of concept</span><strong>Find the problem before it becomes a support ticket.</strong><small>Baseline → Detect → Investigate → Improve → Verify</small></div>
+    <div class="case-copy"><p class="kicker">Proactive endpoint operations</p><h2>Less firefighting. More forward motion.</h2><p>Imagine an endpoint environment that has a clear picture of its healthy state, notices when something important changes, and helps a technician investigate before a user loses time or work.</p><p>That means combining the management tools an organization already uses with sound diagnostics, measured automation and human-approved remediation.</p><div class="pill-row"><span class="pill">Known-good baselines</span><span class="pill">Evidence-led diagnosis</span><span class="pill">Controlled automation</span><span class="pill">Recovery validation</span></div></div>
+  </div>
+</section>
+<section class="section" id="about">
+  <div class="wrap about-grid">
+    <div><p class="kicker">Experience without the theatre</p><h2>Curious about the technology. Serious about the outcome.</h2></div>
+    <div><p>I've spent two decades working around the realities of business technology: the migrations, outages, vendor promises, compatibility surprises and compromises that don't show up in a product demo.</p><p>That experience creates a longer view. I pay attention to why technologies are built the way they are, what their design choices make possible, and what they leave for someone else to solve.</p><p>My job is to make those trade-offs understandable—and turn them into practical decisions.</p><div class="credential-list"><span class="credential">CISSP</span><span class="credential">CompTIA Network+</span><span class="credential">CompTIA Linux+</span></div></div>
+  </div>
+</section>
+<section class="contact" id="contact">
+  <div class="wrap contact-inner"><div><p class="eyebrow">A good place to start</p><h2>Let's take a look at your technology roster.</h2><p>What is working? Where are the gaps? What would make the biggest difference?</p></div><a class="button" href="mailto:hello@example.com?subject=Let's%20talk%20technology">Start a conversation</a></div>
+</section>
+</main>
+<footer><div class="wrap footer-inner"><span>© <span id="year">2026</span> Anthony Edgar · Technology consulting & systems integration</span><span>Practical experience. Clear thinking. Better technology decisions.</span></div></footer>
+</div>
+<script>
+document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
