@@ -65,6 +65,11 @@ h2 { font-size: clamp(30px, 4vw, 46px); line-height: 1.1; letter-spacing: -.05em
 .number { color: #9a673b; font-size: 11px; font-weight: 800; letter-spacing: .12em; }
 .roster-card h3 { font-size: 19px; letter-spacing: -.03em; margin: 30px 0 10px; }
 .roster-card p { color: var(--muted); line-height: 1.65; font-size: 14px; margin-bottom: 0; }
+.people-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-top: 38px; }
+.people-card { padding: 24px; background: var(--surface); border: 1px solid var(--line); border-radius: calc(18px * var(--site-radius-scale)); }
+.people-card h3 { font-size: 18px; letter-spacing: -.03em; margin: 18px 0 9px; }
+.people-card p { color: var(--muted); line-height: 1.65; font-size: 14px; margin: 0; }
+.people-note { margin-top: 24px; padding: 20px 22px; border-left: 3px solid var(--warm); background: var(--surface-soft); color: var(--muted); font-size: 14px; line-height: 1.7; }
 .split { display: grid; grid-template-columns: .9fr 1.1fr; gap: 70px; align-items: start; }
 .quote-panel { background: var(--site-secondary); color: var(--site-on-secondary); padding: 34px; border-radius: calc(20px * var(--site-radius-scale)); }
 .quote-panel blockquote { margin: 0; font-size: clamp(22px, 3vw, 31px); font-weight: 680; line-height: 1.25; letter-spacing: -.04em; }
@@ -108,6 +113,7 @@ footer { padding: 24px 0; color: var(--muted); font-size: 11px; }
   .roster-grid { grid-template-columns: 1fr; }
   .roster-card { min-height: auto; }
   .roster-card h3 { margin-top: 20px; }
+  .people-grid { grid-template-columns: 1fr; }
   .split, .case, .about-grid { grid-template-columns: 1fr; gap: 32px; }
   .method { grid-template-columns: 1fr 1fr; row-gap: 25px; }
   .contact-inner { align-items: flex-start; flex-direction: column; }
@@ -162,6 +168,21 @@ footer { padding: 24px 0; color: var(--muted); font-size: 11px; }
       <article class="roster-card"><span class="number">02 / FIND THE GAPS</span><h3>See where the lineup falls short</h3><p>Identify weak handoffs, missing capabilities, unnecessary complexity and risks hiding between products.</p></article>
       <article class="roster-card"><span class="number">03 / MAKE IT WORK</span><h3>Build a better combination</h3><p>Connect the right tools, add automation where it helps, and make improvements that fit the business—not the latest hype cycle.</p></article>
     </div>
+  </div>
+</section>
+<section class="section" id="people">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="kicker">Know the people behind the technology</p>
+      <h2>A strong roster starts with understanding your people.</h2>
+      <p class="lede">Job titles only tell part of the story. The people doing the work know where they excel, where they need support, and what kind of technician or technology professional they want to become. Give them a voice in defining that direction.</p>
+    </div>
+    <div class="people-grid">
+      <article class="people-card"><span class="number">01 / DEFINE THE TECH IDENTITY</span><h3>Know your strengths—and your edges</h3><p>Invite each technician to describe their strengths, experience, interests and development areas, in their own words. Explore how they see their abilities relative to the team and the wider technology field—without reducing people to rankings or job titles.</p></article>
+      <article class="people-card"><span class="number">02 / PLANT FLAGS IN THE GROUND</span><h3>Picture the next one to five years</h3><p>Set meaningful horizons at one, two, three and five years. What skills, responsibilities or experiences would each person like to work toward? Turn those ambitions into practical milestones, learning opportunities and on-the-job experience.</p></article>
+      <article class="people-card"><span class="number">03 / BUILD A REALISTIC ROADMAP</span><h3>Plan for the conditions people work in</h3><p>Bring together business priorities and constraints shared by management and ownership with the practical realities employees choose to share. Identify headwinds, available support and achievable next steps—then revisit the plan as circumstances change.</p></article>
+    </div>
+    <div class="people-note"><strong>Respect matters:</strong> Personal commitments are optional context, not a requirement. Each employee decides what they are comfortable sharing, with whom, and at what level of detail. The goal is a realistic development plan built with people—not a way to monitor their private lives or measure their worth.</div>
   </div>
 </section>
 <section class="section" id="work">
